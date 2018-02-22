@@ -35,3 +35,14 @@ $string['headerconfig'] = 'Config section header';
 $string['descconfig'] = 'Description of the config section';
 $string['pagelayout_details'] = '';
 $string['pagelayout'] = 'Page layout';
+
+// gotosuperiframe
+$string['gotosuperiframe'] = 'Go to SuperIframe';
+
+// administration
+$string['url'] = 'iFrame url';
+$string['url_details'] = 'Description url';
+$string['width'] = 'Width';
+$string['widthdetails'] = 'Description width';
+$string['height'] = 'Height';
+$string['heightdetails'] = 'Description height';

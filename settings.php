@@ -25,10 +25,33 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+// titre fourni (configuration par défaut)
 $settings->add(new admin_setting_heading('sampleheader',
          get_string('headerconfig', 'block_superiframe'),
          get_string('descconfig', 'block_superiframe')));
-                                                               
+
+// titre avec checkbox ???
+/*$settings->add(new admin_setting_configcheckbox('superiframe/foo',
+         get_string('labelfoo', 'block_superiframe'),
+         get_string('descfoo', 'block_superiframe'),
+		 '0'));*/
+		 
+// iframe URL		 
+$defaulturl='https://quizlet.com/132695231/scatter/embed';
+$settings->add(new admin_setting_configtext('block_superiframe/url', get_string('url', 'block_superiframe'),
+        get_string('url_details', 'block_superiframe'), $defaulturl, PARAM_RAW)); 
+
+// Width
+$defaultwidth='600';
+$settings->add(new admin_setting_configtext('block_superiframe/width', get_string('width', 'block_superiframe'),
+        get_string('widthdetails', 'block_superiframe'), $defaultwidth, PARAM_INT)); 
+	
+// Height
+$defaultheight='400';
+$settings->add(new admin_setting_configtext('block_superiframe/height', get_string('height', 'block_superiframe'),
+        get_string('heightdetails', 'block_superiframe'), $defaultheight, PARAM_INT)); 
+		
+// Page layout			
 $options = array();
 $options['course']=get_string('course');
 $options['popup']=get_string('popup');
