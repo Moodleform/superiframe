@@ -1,0 +1,75 @@
+<?php
+
+class block_superiframe_renderer extends plugin_renderer_base {
+
+   //Here we return all the content that the goes in the block
+   function fetch_block_content(){
+	   
+	   global $CFG, $USER;
+		$text='';	   
+	   
+	   // block should be on course page
+        $currentcontext = $this->page->context->get_course_context(false);
+
+        if (empty($currentcontext)) {
+            return $this->content;
+        }
+        
+        // Block could be on front page
+        if ($this->page->course->id == SITEID) {
+            // $this->content->text .= "site context <br >";
+			$text .= "site context RENDERER<br >";
+        }
+		
+        // Check the block config string
+        /*if (! empty($this->config->text)) {
+            $this->content->text .= $this->config->text;
+        }*/
+
+		// modif Cécile
+		// $this->content->text .= '<br />'.get_string('welcomeuser','block_superiframe',$USER);
+		$text .= '<br />'.get_string('welcomeuser','block_superiframe',$USER);
+		// ajout week 4
+		// $this->content->text .= '<br /><a href="' . $CFG->wwwroot . '/blocks/superiframe/view.php">' . get_string('gotosuperiframe', 'block_superiframe') . '</a>';
+		$text .= '<br /><a href="' . $CFG->wwwroot . '/blocks/superiframe/view.php">' . get_string('gotosuperiframe', 'block_superiframe') . '</a>';
+		
+		return $text;
+   }
+    //Here we aggregate all the pieces of content of the view page and displays them
+    function display_view_page($url, $width, $height){
+		
+		global $CFG, $OUTPUT, $USER;
+		// start output to browser
+		echo $this->output->header();
+		echo $this->output->heading(get_string('pluginname', 'block_superiframe'),5);
+
+		echo '<br> Nom utilisateur : '. fullname($USER);
+		//echo '<br>' . $USER->id. '<br><br>';
+		//echo '<br>' . $USER->username. '<br><br>';
+		//echo '<br>' . $USER->firstname. '<br><br>';
+		//echo '<br>' . $USER->lastname. '<br><br>';
+		//echo '<br>' . $USER->picture. '<br><br>';
+
+		// TEST CECILE echo '<a href="'. $CFG->wwwroot .'/pluginfile.php/5/user/icon/boost/f2?rev='.$USER->picture.'" id="userpicture_randomid"><br> <img src="'. $CFG->wwwroot .'/pluginfile.php/5/user/icon/boost/f2?rev='. $USER->picture .'" alt="Photo Profil" title="Photo Profil" class="userpicture" /></a>'; 
+
+		echo '<br>' . $this->output->user_picture($USER).'<br>';
+
+		// echo '<iframe src="https://quizlet.com/132695231/scatter/embed" height="410" width="100%" style="border:0"></iframe>';
+		// récupération des paramètres saisis dans admin
+		echo '<iframe src="'.$url.'" height="'.$height.'" width="'.$width.'" style="border:0"></iframe>';
+
+		/*
+		<a href="#" id="userpicture_randomid">
+			<img src="#" alt="Picture of Joe" title="Picture of Joe" class="userpicture" width="[35, 100, XX]" height="[35, 100, XX]" />
+		</a>
+		*/
+
+		//echo '<br>' . print_object($USER). '<br><br>';
+
+		// Some content goes here
+		//echo "I am some dummy content. Get rid of me fast!";	
+
+		//send footer out to browser
+		echo $this->output->footer();
+    }
+}

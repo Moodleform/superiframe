@@ -24,20 +24,20 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'superiframe';
+$string['pluginname'] = 'Bloc superIframe';
 $string['blockstring'] = 'Block string';
-$string['superiframe:addinstance'] = 'Add a superiframe block';
-$string['superiframe:myaddinstance'] = 'Add a superiframe block to my moodle';
-$string['welcomeuser'] = 'Welcome to superiframe, {$a->firstname} {$a->lastname}';
+$string['superiframe:addinstance'] = 'Ajouter un bloc superiframe';
+$string['superiframe:myaddinstance'] = 'Ajouter un bloc superiframe à Moodle';
+$string['welcomeuser'] = 'Bienvenue à superiframe, {$a->firstname} {$a->lastname}';
 
 // Strings for the settings.php file
-$string['headerconfig'] = 'Config section header';
-$string['descconfig'] = 'Description of the config section';
+$string['headerconfig'] = 'Configuration du titre';
+$string['descconfig'] = 'Description de la configuration';
 $string['pagelayout_details'] = '';
-$string['pagelayout'] = 'Page layout';
+$string['pagelayout'] = 'Mise en page';
 
 // gotosuperiframe
-$string['gotosuperiframe'] = 'Go to SuperIframe';
+$string['gotosuperiframe'] = 'Allez à SuperIframe';
 
 // administration
 $string['url'] = 'iFrame url';
@@ -47,8 +47,8 @@ $string['widthdetails'] = 'Description width';
 $string['height'] = 'Height';
 $string['heightdetails'] = 'Description height';
 
-// size of iframe
-$string['custom'] = 'custom';
-$string['small'] = 'small';
-$string['medium'] = 'medium';
-$string['big'] = 'big';
+// taille iframe
+$string['custom'] = 'Personnalisé';
+$string['small'] = 'Petit';
+$string['medium'] = 'Moyen';
+$string['big'] = 'Grand';
